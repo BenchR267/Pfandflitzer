@@ -49,14 +49,14 @@
 		B50F5A231DD71ABA00C1C0DA /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		B50F5A241DD71ABA00C1C0DA /* RxKeyboard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxKeyboard.framework; path = Carthage/Build/iOS/RxKeyboard.framework; sourceTree = "<group>"; };
 		B50F5A251DD71ABA00C1C0DA /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		B50F5A2A1DD7296500C1C0DA /* TakePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakePhoto.swift; path = "../Workflow/Create Offer/TakePhoto.swift"; sourceTree = "<group>"; };
+		B50F5A2A1DD7296500C1C0DA /* TakePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakePhoto.swift; path = TakePhoto.swift; sourceTree = "<group>"; };
 		B50F5A2C1DD72C2100C1C0DA /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B50F5A2F1DD7357F00C1C0DA /* ShowOffersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowOffersVC.swift; sourceTree = "<group>"; };
 		B50F5A321DD736DE00C1C0DA /* OfferTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTVC.swift; sourceTree = "<group>"; };
 		B50F5A331DD736DE00C1C0DA /* OfferTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OfferTVC.xib; sourceTree = "<group>"; };
 		B50F5A361DD73D2D00C1C0DA /* CreateOfferPersonVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOfferPersonVC.swift; sourceTree = "<group>"; };
 		B50F5A381DD740D100C1C0DA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		B50F5A3A1DD741A900C1C0DA /* GetLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetLocation.swift; path = "../Workflow/Create Offer/GetLocation.swift"; sourceTree = "<group>"; };
+		B50F5A3A1DD741A900C1C0DA /* GetLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetLocation.swift; path = GetLocation.swift; sourceTree = "<group>"; };
 		B50F5A3C1DD742F900C1C0DA /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		B50F5A3F1DD74B1E00C1C0DA /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B50F5A411DD7561B00C1C0DA /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
@@ -97,9 +97,9 @@
 		B50F59F91DD70C9800C1C0DA /* Pfandflitzer */ = {
 			isa = PBXGroup;
 			children = (
-				B50F5A3E1DD74B0F00C1C0DA /* NetworkLayer */,
 				B50F5A0C1DD70CC400C1C0DA /* Core */,
 				B50F5A191DD7103000C1C0DA /* Extensions */,
+				B50F5A3E1DD74B0F00C1C0DA /* NetworkLayer */,
 				B50F5A0D1DD70CD100C1C0DA /* Supporting files */,
 				B50F5A1E1DD7116500C1C0DA /* Workflow */,
 				B50F59FE1DD70C9800C1C0DA /* Main.storyboard */,
@@ -110,9 +110,9 @@
 		B50F5A0C1DD70CC400C1C0DA /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B50F59FC1DD70C9800C1C0DA /* ViewController.swift */,
-				B50F5A2A1DD7296500C1C0DA /* TakePhoto.swift */,
 				B50F5A3A1DD741A900C1C0DA /* GetLocation.swift */,
+				B50F5A2A1DD7296500C1C0DA /* TakePhoto.swift */,
+				B50F59FC1DD70C9800C1C0DA /* ViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -140,8 +140,8 @@
 		B50F5A191DD7103000C1C0DA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B50F5A2C1DD72C2100C1C0DA /* Observable.swift */,
 				B50F5A3C1DD742F900C1C0DA /* CLLocationManager+Rx.swift */,
+				B50F5A2C1DD72C2100C1C0DA /* Observable.swift */,
 				B50F5A1A1DD7103B00C1C0DA /* String.swift */,
 				B50F5A1C1DD7107800C1C0DA /* UIButton.swift */,
 			);
@@ -161,8 +161,8 @@
 		B50F5A1F1DD7117E00C1C0DA /* Create Offer */ = {
 			isa = PBXGroup;
 			children = (
-				B50F5A201DD7119700C1C0DA /* CreateOfferVC.swift */,
 				B50F5A361DD73D2D00C1C0DA /* CreateOfferPersonVC.swift */,
+				B50F5A201DD7119700C1C0DA /* CreateOfferVC.swift */,
 			);
 			path = "Create Offer";
 			sourceTree = "<group>";
@@ -203,6 +203,7 @@
 				B50F5A411DD7561B00C1C0DA /* Offer.swift */,
 			);
 			name = NetworkLayer;
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
