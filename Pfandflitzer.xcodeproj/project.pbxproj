@@ -67,9 +67,9 @@
 		B50F59EE1DD70C9800C1C0DA = {
 			isa = PBXGroup;
 			children = (
+				B50F5A221DD71AB900C1C0DA /* Frameworks */,
 				B50F59F91DD70C9800C1C0DA /* Pfandflitzer */,
 				B50F59F81DD70C9800C1C0DA /* Products */,
-				B50F5A221DD71AB900C1C0DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,11 +84,11 @@
 		B50F59F91DD70C9800C1C0DA /* Pfandflitzer */ = {
 			isa = PBXGroup;
 			children = (
-				B50F59FE1DD70C9800C1C0DA /* Main.storyboard */,
-				B50F5A1E1DD7116500C1C0DA /* Workflow */,
 				B50F5A0C1DD70CC400C1C0DA /* Core */,
 				B50F5A191DD7103000C1C0DA /* Extensions */,
 				B50F5A0D1DD70CD100C1C0DA /* Supporting files */,
+				B50F5A1E1DD7116500C1C0DA /* Workflow */,
+				B50F59FE1DD70C9800C1C0DA /* Main.storyboard */,
 			);
 			path = Pfandflitzer;
 			sourceTree = "<group>";
@@ -124,21 +124,23 @@
 		B50F5A191DD7103000C1C0DA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B50F5A2C1DD72C2100C1C0DA /* Observable.swift */,
 				B50F5A1A1DD7103B00C1C0DA /* String.swift */,
 				B50F5A1C1DD7107800C1C0DA /* UIButton.swift */,
-				B50F5A2C1DD72C2100C1C0DA /* Observable.swift */,
 			);
 			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B50F5A1E1DD7116500C1C0DA /* Workflow */ = {
 			isa = PBXGroup;
 			children = (
-				B50F5A0E1DD70D2200C1C0DA /* Start */,
 				B50F5A1F1DD7117E00C1C0DA /* Create Offer */,
 				B50F5A2E1DD7356D00C1C0DA /* Show Offers */,
+				B50F5A0E1DD70D2200C1C0DA /* Start */,
 			);
 			name = Workflow;
+			path = Workflow;
 			sourceTree = "<group>";
 		};
 		B50F5A1F1DD7117E00C1C0DA /* Create Offer */ = {
@@ -148,6 +150,7 @@
 				B50F5A2A1DD7296500C1C0DA /* TakePhotoVC.swift */,
 			);
 			name = "Create Offer";
+			path = "Create Offer";
 			sourceTree = "<group>";
 		};
 		B50F5A221DD71AB900C1C0DA /* Frameworks */ = {
@@ -163,10 +166,11 @@
 		B50F5A2E1DD7356D00C1C0DA /* Show Offers */ = {
 			isa = PBXGroup;
 			children = (
-				B50F5A2F1DD7357F00C1C0DA /* ShowOffersVC.swift */,
 				B50F5A311DD736C600C1C0DA /* Cell */,
+				B50F5A2F1DD7357F00C1C0DA /* ShowOffersVC.swift */,
 			);
 			name = "Show Offers";
+			path = "Show Offers";
 			sourceTree = "<group>";
 		};
 		B50F5A311DD736C600C1C0DA /* Cell */ = {
@@ -176,6 +180,7 @@
 				B50F5A331DD736DE00C1C0DA /* OfferTVC.xib */,
 			);
 			name = Cell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
