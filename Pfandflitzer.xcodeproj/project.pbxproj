@@ -64,11 +64,11 @@
 		B50F59F91DD70C9800C1C0DA /* Pfandflitzer */ = {
 			isa = PBXGroup;
 			children = (
+				B50F59FE1DD70C9800C1C0DA /* Main.storyboard */,
 				B50F5A1E1DD7116500C1C0DA /* Workflow */,
 				B50F5A0C1DD70CC400C1C0DA /* Core */,
 				B50F5A191DD7103000C1C0DA /* Extensions */,
 				B50F5A0D1DD70CD100C1C0DA /* Supporting files */,
-				B50F59FE1DD70C9800C1C0DA /* Main.storyboard */,
 			);
 			path = Pfandflitzer;
 			sourceTree = "<group>";

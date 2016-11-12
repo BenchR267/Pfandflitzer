@@ -10,6 +10,11 @@ import UIKit
 
 class CreateOfferVC: ViewController {
 
-    
+    @IBOutlet weak var imageVIew: UIImageView!
+    @IBOutlet weak var noteTextView: UITextView!
+    @IBOutlet weak var nextButton: UIButton!
 
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        
+    }
 }
