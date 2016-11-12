@@ -17,6 +17,10 @@ class CreateOfferModel: NSObject {
     var box = 0.0
     var bag = 0.0
     
+    var imageObservable: Observable<UIImage> {
+        return self.rx.observe(UIImage.self, "image").map { $0 ?? UIImage(named: "camera")! }
+    }
+    
     var firstStepDone: Observable<Bool> {
         return self.rx.observe(UIImage.self, "image").map { $0 != nil }
     }
@@ -54,6 +58,11 @@ class CreateOfferVC: ViewController {
                 .bindTo(nextButton.rx.isEnabled)
                 .addDisposableTo(disposeBag)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        model.imageObservable.bindTo(imageView.rx.image).addDisposableTo(disposeBag)
     }
 
     @IBAction func nextButtonPressed(_ sender: UIButton) {

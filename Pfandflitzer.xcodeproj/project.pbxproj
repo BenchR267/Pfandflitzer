@@ -22,6 +22,9 @@
 		B50F5A281DD71ABA00C1C0DA /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50F5A251DD71ABA00C1C0DA /* RxSwift.framework */; };
 		B50F5A2B1DD7296500C1C0DA /* TakePhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A2A1DD7296500C1C0DA /* TakePhotoVC.swift */; };
 		B50F5A2D1DD72C2100C1C0DA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A2C1DD72C2100C1C0DA /* Observable.swift */; };
+		B50F5A301DD7357F00C1C0DA /* ShowOffersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A2F1DD7357F00C1C0DA /* ShowOffersVC.swift */; };
+		B50F5A341DD736DE00C1C0DA /* OfferTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A321DD736DE00C1C0DA /* OfferTVC.swift */; };
+		B50F5A351DD736DE00C1C0DA /* OfferTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50F5A331DD736DE00C1C0DA /* OfferTVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		B50F5A251DD71ABA00C1C0DA /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		B50F5A2A1DD7296500C1C0DA /* TakePhotoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoVC.swift; sourceTree = "<group>"; };
 		B50F5A2C1DD72C2100C1C0DA /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		B50F5A2F1DD7357F00C1C0DA /* ShowOffersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowOffersVC.swift; sourceTree = "<group>"; };
+		B50F5A321DD736DE00C1C0DA /* OfferTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTVC.swift; sourceTree = "<group>"; };
+		B50F5A331DD736DE00C1C0DA /* OfferTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OfferTVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,7 @@
 			children = (
 				B50F5A0E1DD70D2200C1C0DA /* Start */,
 				B50F5A1F1DD7117E00C1C0DA /* Create Offer */,
+				B50F5A2E1DD7356D00C1C0DA /* Show Offers */,
 			);
 			name = Workflow;
 			sourceTree = "<group>";
@@ -151,6 +158,24 @@
 				B50F5A251DD71ABA00C1C0DA /* RxSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B50F5A2E1DD7356D00C1C0DA /* Show Offers */ = {
+			isa = PBXGroup;
+			children = (
+				B50F5A2F1DD7357F00C1C0DA /* ShowOffersVC.swift */,
+				B50F5A311DD736C600C1C0DA /* Cell */,
+			);
+			name = "Show Offers";
+			sourceTree = "<group>";
+		};
+		B50F5A311DD736C600C1C0DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B50F5A321DD736DE00C1C0DA /* OfferTVC.swift */,
+				B50F5A331DD736DE00C1C0DA /* OfferTVC.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50F5A351DD736DE00C1C0DA /* OfferTVC.xib in Resources */,
 				B50F5A051DD70C9800C1C0DA /* LaunchScreen.storyboard in Resources */,
 				B50F5A131DD70E3200C1C0DA /* Localizable.strings in Resources */,
 				B50F5A021DD70C9800C1C0DA /* Assets.xcassets in Resources */,
@@ -249,10 +275,12 @@
 			files = (
 				B50F5A2D1DD72C2100C1C0DA /* Observable.swift in Sources */,
 				B50F5A1D1DD7107800C1C0DA /* UIButton.swift in Sources */,
+				B50F5A341DD736DE00C1C0DA /* OfferTVC.swift in Sources */,
 				B50F59FD1DD70C9800C1C0DA /* ViewController.swift in Sources */,
 				B50F59FB1DD70C9800C1C0DA /* AppDelegate.swift in Sources */,
 				B50F5A2B1DD7296500C1C0DA /* TakePhotoVC.swift in Sources */,
 				B50F5A101DD70D4500C1C0DA /* StartVC.swift in Sources */,
+				B50F5A301DD7357F00C1C0DA /* ShowOffersVC.swift in Sources */,
 				B50F5A1B1DD7103B00C1C0DA /* String.swift in Sources */,
 				B50F5A211DD7119700C1C0DA /* CreateOfferVC.swift in Sources */,
 			);
