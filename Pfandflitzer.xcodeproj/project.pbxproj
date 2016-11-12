@@ -12,6 +12,8 @@
 		B50F5A001DD70C9800C1C0DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B50F59FE1DD70C9800C1C0DA /* Main.storyboard */; };
 		B50F5A021DD70C9800C1C0DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B50F5A011DD70C9800C1C0DA /* Assets.xcassets */; };
 		B50F5A051DD70C9800C1C0DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B50F5A031DD70C9800C1C0DA /* LaunchScreen.storyboard */; };
+		B50F5A101DD70D4500C1C0DA /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A0F1DD70D4500C1C0DA /* StartVC.swift */; };
+		B50F5A131DD70E3200C1C0DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B50F5A151DD70E3200C1C0DA /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		B50F5A011DD70C9800C1C0DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B50F5A041DD70C9800C1C0DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B50F5A061DD70C9800C1C0DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B50F5A0F1DD70D4500C1C0DA /* StartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
+		B50F5A141DD70E3200C1C0DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,43 @@
 		B50F59F91DD70C9800C1C0DA /* Pfandflitzer */ = {
 			isa = PBXGroup;
 			children = (
-				B50F59FA1DD70C9800C1C0DA /* AppDelegate.swift */,
-				B50F59FC1DD70C9800C1C0DA /* ViewController.swift */,
+				B50F5A0C1DD70CC400C1C0DA /* Core */,
+				B50F5A0E1DD70D2200C1C0DA /* Start */,
+				B50F5A0D1DD70CD100C1C0DA /* Supporting files */,
 				B50F59FE1DD70C9800C1C0DA /* Main.storyboard */,
-				B50F5A011DD70C9800C1C0DA /* Assets.xcassets */,
-				B50F5A031DD70C9800C1C0DA /* LaunchScreen.storyboard */,
-				B50F5A061DD70C9800C1C0DA /* Info.plist */,
 			);
 			path = Pfandflitzer;
+			sourceTree = "<group>";
+		};
+		B50F5A0C1DD70CC400C1C0DA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B50F59FC1DD70C9800C1C0DA /* ViewController.swift */,
+			);
+			name = Core;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B50F5A0D1DD70CD100C1C0DA /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				B50F59FA1DD70C9800C1C0DA /* AppDelegate.swift */,
+				B50F5A011DD70C9800C1C0DA /* Assets.xcassets */,
+				B50F5A061DD70C9800C1C0DA /* Info.plist */,
+				B50F5A031DD70C9800C1C0DA /* LaunchScreen.storyboard */,
+				B50F5A151DD70E3200C1C0DA /* Localizable.strings */,
+			);
+			name = "Supporting files";
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		B50F5A0E1DD70D2200C1C0DA /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				B50F5A0F1DD70D4500C1C0DA /* StartVC.swift */,
+			);
+			name = Start;
+			path = Start;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,6 +104,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B50F5A091DD70C9800C1C0DA /* Build configuration list for PBXNativeTarget "Pfandflitzer" */;
 			buildPhases = (
+				B50F5A161DD70EC800C1C0DA /* Localizations */,
 				B50F59F31DD70C9800C1C0DA /* Sources */,
 				B50F59F41DD70C9800C1C0DA /* Frameworks */,
 				B50F59F51DD70C9800C1C0DA /* Resources */,
@@ -125,12 +159,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				B50F5A051DD70C9800C1C0DA /* LaunchScreen.storyboard in Resources */,
+				B50F5A131DD70E3200C1C0DA /* Localizable.strings in Resources */,
 				B50F5A021DD70C9800C1C0DA /* Assets.xcassets in Resources */,
 				B50F5A001DD70C9800C1C0DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B50F5A161DD70EC800C1C0DA /* Localizations */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Localizations;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "which LaurineGenerator.swift\nif [ $? -ne 0 ]; then\necho \"Please install Laurine:\"\necho \"    brew tap jiritrecak/laurine\"\necho \"    brew install jiritrecak/laurine/laurine\"\nexit 1\nfi\n\nset -x\n\n# Get base path to project\nBASE_PATH=\"$PROJECT_DIR/$PROJECT_NAME\"\n\n#--------- START OF YOUR CONFIGURATION (change Path_To_.. to fit)\n\n# Get path to main localization file (usually english).\nSOURCE_PATH=\"$BASE_PATH/Supporting_Files/de.lproj/Localizable.strings\"\n\n# Get path to output.\nOUTPUT_PATH=\"$BASE_PATH/Supporting_Files/generated/Localization.swift\"\n\n#--------- END OF YOUR CONFIGURATION\n\n# Add permission to generator for script execution\nchmod 755 `which LaurineGenerator.swift`\n\n# Actually generate output. -- CUSTOMIZE -- parameters to your needs (see documentation).\n# Will only re-generate script if something changed\n`which LaurineGenerator.swift` -c -i \"$SOURCE_PATH\" -o \"$OUTPUT_PATH\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B50F59F31DD70C9800C1C0DA /* Sources */ = {
@@ -139,6 +191,7 @@
 			files = (
 				B50F59FD1DD70C9800C1C0DA /* ViewController.swift in Sources */,
 				B50F59FB1DD70C9800C1C0DA /* AppDelegate.swift in Sources */,
+				B50F5A101DD70D4500C1C0DA /* StartVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +204,7 @@
 				B50F59FF1DD70C9800C1C0DA /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		B50F5A031DD70C9800C1C0DA /* LaunchScreen.storyboard */ = {
@@ -159,6 +213,16 @@
 				B50F5A041DD70C9800C1C0DA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+		B50F5A151DD70E3200C1C0DA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B50F5A141DD70E3200C1C0DA /* Base */,
+			);
+			name = Localizable.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -262,7 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3E4PGPNR47;
-				INFOPLIST_FILE = Pfandflitzer/Info.plist;
+				INFOPLIST_FILE = "Pfandflitzer/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.benchr.Pfandflitzer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -275,7 +339,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3E4PGPNR47;
-				INFOPLIST_FILE = Pfandflitzer/Info.plist;
+				INFOPLIST_FILE = "Pfandflitzer/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.benchr.Pfandflitzer;
 				PRODUCT_NAME = "$(TARGET_NAME)";

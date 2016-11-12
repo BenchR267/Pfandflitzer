@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  Pfandflitzer
+
+  Created by Benjamin Herzog on 12/11/2016.
+  Copyright © 2016 Benjamin Herzog. All rights reserved.
+*/
+
+"START_SEARCH_BUTTON" = "I'm searching";
+"START_OFFER_BUTTON" = "I'm offering";
