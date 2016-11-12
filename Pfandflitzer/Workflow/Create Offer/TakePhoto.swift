@@ -22,7 +22,6 @@ class TakePhoto: NSObject {
         self.strongSelf = self
         let c = UIImagePickerController()
         c.sourceType = .camera
-        c.allowsEditing = true
         c.delegate = self
         controller.present(c, animated: true, completion: nil)
         return imageVariable.asObservable().filterNil()
@@ -33,7 +32,7 @@ class TakePhoto: NSObject {
 extension TakePhoto: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageVariable.value = image
         }
         picker.dismiss(animated: true) {

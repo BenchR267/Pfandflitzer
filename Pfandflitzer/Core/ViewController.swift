@@ -10,5 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    func dismiss() {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
