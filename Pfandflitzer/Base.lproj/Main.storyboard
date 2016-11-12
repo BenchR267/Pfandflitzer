@@ -120,7 +120,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageVIew" destination="vUQ-J6-hpV" id="Btp-nR-AWr"/>
+                        <outlet property="imageView" destination="vUQ-J6-hpV" id="Kdo-U4-kuz"/>
                         <outlet property="nextButton" destination="d66-23-J32" id="hnq-B7-BM4"/>
                         <outlet property="noteTextView" destination="pdf-6q-jB2" id="Hhw-E5-D3l"/>
                     </connections>
