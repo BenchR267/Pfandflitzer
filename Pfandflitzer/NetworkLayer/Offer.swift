@@ -61,7 +61,7 @@ class Location {
 
 class Offer {
     
-    let id: String
+    let id: Int
     let note: String
     let boxes: Double
     let bags: Double
@@ -75,7 +75,7 @@ class Offer {
             return nil
         }
         
-        guard let id = j["Id"] as? String,
+        guard let id = j["Id"] as? Int,
             let note = j["Note"] as? String,
             let boxes = j["Boxes"] as? Double,
             let bags = j["Bags"] as? Double else {

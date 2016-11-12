@@ -185,9 +185,32 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dL2-cK-6ZE">
                                 <rect key="frame" x="0.0" y="326.5" width="375" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tHn-N7-8Y9">
+                                        <rect key="frame" x="8" y="15" width="251" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YT2-55-Ktp">
+                                        <rect key="frame" x="321" y="15" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srd-yt-sLo">
+                                        <rect key="frame" x="267" y="15" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="YT2-55-Ktp" firstAttribute="leading" secondItem="srd-yt-sLo" secondAttribute="trailing" constant="8" id="0X7-3x-BgW"/>
                                     <constraint firstAttribute="height" constant="60" id="4sl-7R-xis"/>
+                                    <constraint firstItem="tHn-N7-8Y9" firstAttribute="leading" secondItem="dL2-cK-6ZE" secondAttribute="leading" constant="8" id="AtX-IF-scr"/>
+                                    <constraint firstItem="tHn-N7-8Y9" firstAttribute="centerY" secondItem="dL2-cK-6ZE" secondAttribute="centerY" id="ETX-q1-bYi"/>
+                                    <constraint firstItem="srd-yt-sLo" firstAttribute="leading" secondItem="tHn-N7-8Y9" secondAttribute="trailing" constant="8" id="JD6-Vc-QOj"/>
+                                    <constraint firstItem="srd-yt-sLo" firstAttribute="centerY" secondItem="dL2-cK-6ZE" secondAttribute="centerY" id="TXJ-nt-igG"/>
+                                    <constraint firstItem="YT2-55-Ktp" firstAttribute="centerY" secondItem="dL2-cK-6ZE" secondAttribute="centerY" id="fyX-Ei-fte"/>
+                                    <constraint firstAttribute="trailing" secondItem="YT2-55-Ktp" secondAttribute="trailing" constant="8" id="sXW-Ie-xct"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -223,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IGA-E6-heo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3990" y="215"/>
+            <point key="canvasLocation" x="3989.5999999999999" y="214.54272863568218"/>
         </scene>
         <!--Create Offer PersonVC-->
         <scene sceneID="zyn-o5-7Dh">

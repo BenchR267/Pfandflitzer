@@ -23,18 +23,7 @@ class CreateOfferModel: NSObject {
     dynamic var name: String?
     dynamic var mail: String?
     
-    dynamic var location: CLLocation? {
-        didSet {
-            let loc = Location(location: location!)
-            Offer.get(location: loc)
-                .subscribe(onNext: {
-                    print("\($0)")
-                }, onError: {
-                    print($0)
-                })
-                .addDisposableTo(disposeBag)
-        }
-    }
+    dynamic var location: CLLocation?
     
     var imageObservable: Observable<UIImage> {
         return self.rx.observe(UIImage.self, "image").map { $0 ?? UIImage(named: "camera")! }
@@ -60,6 +49,25 @@ class CreateOfferModel: NSObject {
         return Observable.combineLatest(locationObservable, self.rx.observe(UIImage.self, "image")) {
             return $0 != nil && $1 != nil
         }
+    }
+    
+    func post() -> Observable<Offer?> {
+        
+        guard let i = image, let name = name, let mail = mail, let loc = location else {
+            return Observable.just(nil)
+        }
+        
+        let p: [String: Any] = [
+            "Image": UIImageJPEGRepresentation(i, 0.8) ?? Data(),
+            "Bag": bag,
+            "Box": box,
+            "Note": note,
+            "Name": name,
+            "Mail": mail,
+            "Location": Location(location: loc).json
+        ]
+        
+        return NetworkManager.shared.post(path: "/offers", params: p).map { Offer(json: $0) }
     }
     
 }
@@ -107,6 +115,12 @@ class CreateOfferVC: ViewController {
         GetLocation().get().subscribe(onNext: { [weak self] l in
             self?.model.location = l
         }).addDisposableTo(disposeBag)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        model.note = noteTextView.text
     }
     
     @IBAction func cancelPressed(_ sender: Any) {

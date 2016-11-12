@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RxSwift
 
 class ShowOffersVC: ViewController {
 
+    let disposeBag = DisposeBag()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -20,6 +23,17 @@ class ShowOffersVC: ViewController {
         
         let nib = UINib(nibName: String(describing: OfferTVC.self), bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: String(describing: OfferTVC.self))
+        
+        GetLocation().get().subscribe(onNext: { l in
+            
+            let loc = Location(location: l!)
+            Offer.get(location: loc).subscribe(onNext: { o in
+                print(o)
+            }, onError: { e in
+                print(e)
+            })
+            
+        }).addDisposableTo(self.disposeBag)
     }
 
 }
