@@ -14,6 +14,9 @@
 		B50F5A051DD70C9800C1C0DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B50F5A031DD70C9800C1C0DA /* LaunchScreen.storyboard */; };
 		B50F5A101DD70D4500C1C0DA /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A0F1DD70D4500C1C0DA /* StartVC.swift */; };
 		B50F5A131DD70E3200C1C0DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B50F5A151DD70E3200C1C0DA /* Localizable.strings */; };
+		B50F5A1B1DD7103B00C1C0DA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A1A1DD7103B00C1C0DA /* String.swift */; };
+		B50F5A1D1DD7107800C1C0DA /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A1C1DD7107800C1C0DA /* UIButton.swift */; };
+		B50F5A211DD7119700C1C0DA /* CreateOfferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A201DD7119700C1C0DA /* CreateOfferVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		B50F5A061DD70C9800C1C0DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B50F5A0F1DD70D4500C1C0DA /* StartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		B50F5A141DD70E3200C1C0DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B50F5A1A1DD7103B00C1C0DA /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		B50F5A1C1DD7107800C1C0DA /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		B50F5A201DD7119700C1C0DA /* CreateOfferVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOfferVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +64,9 @@
 		B50F59F91DD70C9800C1C0DA /* Pfandflitzer */ = {
 			isa = PBXGroup;
 			children = (
+				B50F5A1E1DD7116500C1C0DA /* Workflow */,
 				B50F5A0C1DD70CC400C1C0DA /* Core */,
-				B50F5A0E1DD70D2200C1C0DA /* Start */,
+				B50F5A191DD7103000C1C0DA /* Extensions */,
 				B50F5A0D1DD70CD100C1C0DA /* Supporting files */,
 				B50F59FE1DD70C9800C1C0DA /* Main.storyboard */,
 			);
@@ -71,7 +78,6 @@
 			children = (
 				B50F59FC1DD70C9800C1C0DA /* ViewController.swift */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -84,7 +90,6 @@
 				B50F5A031DD70C9800C1C0DA /* LaunchScreen.storyboard */,
 				B50F5A151DD70E3200C1C0DA /* Localizable.strings */,
 			);
-			name = "Supporting files";
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
@@ -93,8 +98,33 @@
 			children = (
 				B50F5A0F1DD70D4500C1C0DA /* StartVC.swift */,
 			);
-			name = Start;
 			path = Start;
+			sourceTree = "<group>";
+		};
+		B50F5A191DD7103000C1C0DA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B50F5A1A1DD7103B00C1C0DA /* String.swift */,
+				B50F5A1C1DD7107800C1C0DA /* UIButton.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		B50F5A1E1DD7116500C1C0DA /* Workflow */ = {
+			isa = PBXGroup;
+			children = (
+				B50F5A0E1DD70D2200C1C0DA /* Start */,
+				B50F5A1F1DD7117E00C1C0DA /* Create Offer */,
+			);
+			name = Workflow;
+			sourceTree = "<group>";
+		};
+		B50F5A1F1DD7117E00C1C0DA /* Create Offer */ = {
+			isa = PBXGroup;
+			children = (
+				B50F5A201DD7119700C1C0DA /* CreateOfferVC.swift */,
+			);
+			name = "Create Offer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,7 +134,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B50F5A091DD70C9800C1C0DA /* Build configuration list for PBXNativeTarget "Pfandflitzer" */;
 			buildPhases = (
-				B50F5A161DD70EC800C1C0DA /* Localizations */,
 				B50F59F31DD70C9800C1C0DA /* Sources */,
 				B50F59F41DD70C9800C1C0DA /* Frameworks */,
 				B50F59F51DD70C9800C1C0DA /* Resources */,
@@ -167,31 +196,17 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		B50F5A161DD70EC800C1C0DA /* Localizations */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Localizations;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "which LaurineGenerator.swift\nif [ $? -ne 0 ]; then\necho \"Please install Laurine:\"\necho \"    brew tap jiritrecak/laurine\"\necho \"    brew install jiritrecak/laurine/laurine\"\nexit 1\nfi\n\nset -x\n\n# Get base path to project\nBASE_PATH=\"$PROJECT_DIR/$PROJECT_NAME\"\n\n#--------- START OF YOUR CONFIGURATION (change Path_To_.. to fit)\n\n# Get path to main localization file (usually english).\nSOURCE_PATH=\"$BASE_PATH/Supporting_Files/de.lproj/Localizable.strings\"\n\n# Get path to output.\nOUTPUT_PATH=\"$BASE_PATH/Supporting_Files/generated/Localization.swift\"\n\n#--------- END OF YOUR CONFIGURATION\n\n# Add permission to generator for script execution\nchmod 755 `which LaurineGenerator.swift`\n\n# Actually generate output. -- CUSTOMIZE -- parameters to your needs (see documentation).\n# Will only re-generate script if something changed\n`which LaurineGenerator.swift` -c -i \"$SOURCE_PATH\" -o \"$OUTPUT_PATH\"";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		B50F59F31DD70C9800C1C0DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50F5A1D1DD7107800C1C0DA /* UIButton.swift in Sources */,
 				B50F59FD1DD70C9800C1C0DA /* ViewController.swift in Sources */,
 				B50F59FB1DD70C9800C1C0DA /* AppDelegate.swift in Sources */,
 				B50F5A101DD70D4500C1C0DA /* StartVC.swift in Sources */,
+				B50F5A1B1DD7103B00C1C0DA /* String.swift in Sources */,
+				B50F5A211DD7119700C1C0DA /* CreateOfferVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +381,7 @@
 				B50F5A0B1DD70C9800C1C0DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
