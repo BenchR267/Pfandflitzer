@@ -9,6 +9,20 @@
 import Foundation
 import RxSwift
 
+extension Data {
+    
+    var byteArray: [UInt8] {
+        // the number of elements:
+        let count = self.count / MemoryLayout<UInt8>.size
+        // create array of appropriate length:
+        var array = [UInt8](repeating: 0, count: count)
+        // copy bytes into array
+        copyBytes(to: &array, count: count * MemoryLayout<UInt8>.size)
+        return array
+    }
+    
+}
+
 class NetworkManager {
     
     static let shared = NetworkManager()
@@ -32,7 +46,7 @@ class NetworkManager {
         }
         let p = try? JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
         
-        var r = URLRequest(url: u, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 15)
+        var r = URLRequest(url: u, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
         r.httpBody = p
         r.addValue("application/json", forHTTPHeaderField: "Content-Type")
         

@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import CoreLocation
 
 class Owner {
@@ -60,6 +61,31 @@ class Location {
     
     var cl: CLLocation {
         return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    private let geo = CLGeocoder()
+    var address: Observable<String> {
+        return Observable.create { o in
+            
+            self.geo.reverseGeocodeLocation(self.cl, completionHandler: { p, e in
+                guard let place = p?.first else {
+                    o.onNext("")
+                    o.onCompleted()
+                    return
+                }
+                
+                guard let street = place.thoroughfare, let plz = place.postalCode, let city = place.locality else {
+                    o.onNext("")
+                    o.onCompleted()
+                    return
+                }
+                
+                o.onNext("\(street), \(plz) \(city)")
+                o.onCompleted()
+            })
+            
+            return Disposables.create()
+        }
     }
 }
 

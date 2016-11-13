@@ -18,8 +18,8 @@ class CreateOfferModel: NSObject {
     
     dynamic var image: UIImage?
     dynamic var note = ""
-    dynamic var box = 0.0
-    dynamic var bag = 0.0
+    dynamic var box = 0
+    dynamic var bag = 0
     
     dynamic var name: String?
     dynamic var mail: String?
@@ -38,18 +38,26 @@ class CreateOfferModel: NSObject {
         return self.rx.observe(String.self, "note").filterNil()
     }
     
-    var nameObservable: Observable<String> {
-        return self.rx.observe(String.self, "name").filterNil()
+    var nameObservable: Observable<String?> {
+        return self.rx.observe(String.self, "name")
     }
     
-    var mailObservable: Observable<String> {
-        return self.rx.observe(String.self, "mail").filterNil()
+    var mailObservable: Observable<String?> {
+        return self.rx.observe(String.self, "mail")
     }
     
     var firstStepDone: Observable<Bool> {
-        return Observable.combineLatest(locationObservable, self.rx.observe(UIImage.self, "image")) {
-            return $0 != nil && $1 != nil
+        return Observable.combineLatest(locationObservable, self.rx.observe(UIImage.self, "image"), self.rx.observe(Int.self, "box"), self.rx.observe(Int.self, "bag")) {
+            return $0 != nil && $1 != nil && ($2 ?? 0 > 0 || $3 ?? 0 > 0)
         }
+    }
+    
+    var canUpload: Observable<Bool> {
+    
+        return Observable.combineLatest(firstStepDone, nameObservable, mailObservable) {
+            return $0 && !($1?.isEmpty ?? true) && isValidEmail(testStr: $2 ?? "")
+        }
+    
     }
     
     func post() -> Observable<Offer?> {
@@ -59,7 +67,7 @@ class CreateOfferModel: NSObject {
         }
         
         let p: [String: Any] = [
-            "Image": UIImageJPEGRepresentation(i, 0.8) ?? Data(),
+            "Image": (UIImageJPEGRepresentation(i, 0.3) ?? Data()).byteArray,
             "Bag": bag,
             "Box": box,
             "Note": note,
@@ -73,6 +81,14 @@ class CreateOfferModel: NSObject {
     
 }
 
+func isValidEmail(testStr:String) -> Bool {
+    // print("validate calendar: \(testStr)")
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+    
+    let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailTest.evaluate(with: testStr)
+}
+
 class CreateOfferVC: ViewController {
 
     let disposeBag = DisposeBag()
@@ -80,6 +96,25 @@ class CreateOfferVC: ViewController {
     let model = CreateOfferModel()
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var amountTextField: UITextField! {
+        didSet {
+            amountTextField.delegate = self
+            amountTextField.text = "0"
+        }
+    }
+    @IBOutlet weak var boxButton: UIButton!
+    @IBOutlet weak var bagButton: UIButton!
+    @IBOutlet weak var noteLabel: UILabel!
+    @IBAction func boxButtonPressed(_ sender: Any) {
+        boxButton.isSelected = true
+        bagButton.isSelected = false
+        
+    }
+    @IBAction func bagButtonPressed(_ sender: Any) {
+        boxButton.isSelected = false
+        bagButton.isSelected = true
+    }
     
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
@@ -97,6 +132,7 @@ class CreateOfferVC: ViewController {
     @IBOutlet weak var noteTextView: UITextView! {
         didSet {
             noteTextView.text = ""
+            noteTextView.delegate = self
         }
     }
     @IBOutlet weak var nextButton: UIButton! {
@@ -110,6 +146,9 @@ class CreateOfferVC: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Create offer"
+        
         model.imageObservable.bindTo(imageView.rx.image).addDisposableTo(disposeBag)
         
         RxKeyboard.instance.visibleHeight
@@ -117,6 +156,17 @@ class CreateOfferVC: ViewController {
                 self?.scrollView.contentInset.bottom = keyboardVisibleHeight
             })
             .addDisposableTo(disposeBag)
+        
+        boxButton.isSelected = true
+        
+        amountTextField.rx.text.map {
+            Int($0 ?? "") ?? 0
+        }.subscribe(onNext: { [weak self] v in
+            
+            self?.model.box = self?.boxButton.isSelected ?? false ? v : 0
+            self?.model.bag = self?.bagButton.isSelected ?? false ? v : 0
+            
+        }).addDisposableTo(self.disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -143,4 +193,31 @@ class CreateOfferVC: ViewController {
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         
     }
+}
+
+extension CreateOfferVC: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let newString = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+        return Int(newString) != nil
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}
+
+extension CreateOfferVC: UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "/n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
 }

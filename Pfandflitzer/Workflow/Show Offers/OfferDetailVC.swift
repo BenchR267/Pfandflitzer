@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Kingfisher
+import RxSwift
 
 class OfferAnnotation: NSObject, MKAnnotation {
     
@@ -24,15 +25,26 @@ class OfferAnnotation: NSObject, MKAnnotation {
 
 class OfferDetailVC: ViewController {
 
+    let disposeBag = DisposeBag()
+    
     var offer: Offer!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addressLabel: UILabel! {
+        didSet {
+            addressLabel.text = ""
+            
+        }
+    }
+    @IBOutlet weak var effectsView: UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = offer.distance
         
         imageView.kf.setImage(with: offer.imageURL, placeholder: UIImage(named: "camera"))
         amountLabel.text = offer.amountText()
@@ -46,6 +58,8 @@ class OfferDetailVC: ViewController {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(center.coordinate,
                                                                   regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
+        
+        offer.location.address.bindTo(addressLabel.rx.text).addDisposableTo(self.disposeBag)
     }
     
 }

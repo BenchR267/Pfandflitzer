@@ -2,7 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "camera.pdf"
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "placeholder.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

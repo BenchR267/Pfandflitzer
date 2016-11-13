@@ -26,6 +26,8 @@ class ShowOffersVC: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Offers nearby"
+        
         tableView.dataSource = self
         tableView.delegate = self
         

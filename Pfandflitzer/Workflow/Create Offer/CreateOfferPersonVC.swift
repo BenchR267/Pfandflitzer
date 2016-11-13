@@ -27,12 +27,22 @@ class CreateOfferPersonVC: ViewController {
             model.mail = mailTextField.text
         }
     }
+    @IBOutlet weak var ctaButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model.nameObservable.bindTo(nameTextField.rx.text).addDisposableTo(disposeBag)
-        model.mailObservable.bindTo(mailTextField.rx.text).addDisposableTo(disposeBag)
+        title = "Create offer"
+        
+        nameTextField.rx.text.subscribe(onNext: { [weak self] t in
+            self?.model.name = t
+        }).addDisposableTo(self.disposeBag)
+        
+        mailTextField.rx.text.subscribe(onNext: { [weak self] t in
+            self?.model.mail = t
+        }).addDisposableTo(self.disposeBag)
+        
+        model.canUpload.bindTo(ctaButton.rx.isEnabled).addDisposableTo(disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,7 +52,15 @@ class CreateOfferPersonVC: ViewController {
     
     @IBAction func ctaPressed(_ sender: UIButton) {
         // TODO: Save, Post and close
-        dismiss()
+        model.post().subscribe(onNext: { [weak self] o in
+            print("\(o)")
+            if o != nil {
+                self?.dismiss()
+            }
+            }, onError: {
+                print($0)
+        }).addDisposableTo(self.disposeBag)
+        
     }
     
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
