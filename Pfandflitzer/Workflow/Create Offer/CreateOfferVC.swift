@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import CoreLocation
+import RxKeyboard
 
 class CreateOfferModel: NSObject {
     
@@ -78,6 +79,8 @@ class CreateOfferVC: ViewController {
     
     let model = CreateOfferModel()
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
             let g = UITapGestureRecognizer()
@@ -108,6 +111,12 @@ class CreateOfferVC: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         model.imageObservable.bindTo(imageView.rx.image).addDisposableTo(disposeBag)
+        
+        RxKeyboard.instance.visibleHeight
+            .drive(onNext: { [weak self] keyboardVisibleHeight in
+                self?.scrollView.contentInset.bottom = keyboardVisibleHeight
+            })
+            .addDisposableTo(disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {

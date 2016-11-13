@@ -57,6 +57,10 @@ class Location {
     var json: [String: String] {
         return ["Latitude": "\(latitude)", "Longitude": "\(longitude)"]
     }
+    
+    var cl: CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
 }
 
 class Offer {
@@ -65,6 +69,8 @@ class Offer {
     let note: String
     let boxes: Double
     let bags: Double
+    let distance: String
+    let creation: Date
     
     let owner: Owner
     let location: Location
@@ -78,7 +84,9 @@ class Offer {
         guard let id = j["Id"] as? Int,
             let note = j["Note"] as? String,
             let boxes = j["Boxes"] as? Double,
-            let bags = j["Bags"] as? Double else {
+            let bags = j["Bags"] as? Double,
+            let distance = j["Distance"] as? String,
+            let creation = j["CreationDate"] as? CLong else {
             
             return nil
         }
@@ -87,6 +95,8 @@ class Offer {
         self.note = note
         self.boxes = boxes
         self.bags = bags
+        self.distance = distance
+        self.creation = Date(timeIntervalSince1970: TimeInterval(creation))
         
         guard let owner = Owner(json: j["Owner"]) else {
             return nil
@@ -101,6 +111,20 @@ class Offer {
         self.location = loc
     }
     
+    var imageURL: URL {
+        return URL(string: "\(NetworkManager.shared.baseUrl)/images/\(id)")!
+    }
+    
+    func amountText(spacer: String = " - ") -> String {
+        var amounts = [String]()
+        if boxes > 0 {
+            amounts.append("Anzahl Kisten: \(boxes)")
+        }
+        if bags > 0 {
+            amounts.append("Anzahl Beutel: \(bags)")
+        }
+        return amounts.joined(separator: spacer)
+    }
 }
 
 extension Offer {

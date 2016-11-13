@@ -15,6 +15,14 @@ class ShowOffersVC: ViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var offers = [Offer]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,17 +33,18 @@ class ShowOffersVC: ViewController {
         tableView.register(nib, forCellReuseIdentifier: String(describing: OfferTVC.self))
         
         GetLocation().get().subscribe(onNext: { l in
-            
             let loc = Location(location: l!)
-            Offer.get(location: loc).subscribe(onNext: { o in
-                print(o)
-            }, onError: { e in
-                print(e)
-            })
-            
+            Offer.get(location: loc).subscribe(onNext: { [weak self] o in
+                self?.offers = o ?? []
+            }).addDisposableTo(self.disposeBag)
         }).addDisposableTo(self.disposeBag)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let d = segue.destination as? OfferDetailVC, let i = sender as? IndexPath {
+            d.offer = offers[i.row]
+        }
+    }
 }
 
 extension ShowOffersVC: UITableViewDataSource, UITableViewDelegate {
@@ -45,20 +54,22 @@ extension ShowOffersVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return offers.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.0
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "detail", sender: nil)
+        self.performSegue(withIdentifier: "detail", sender: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: OfferTVC.self), for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: OfferTVC.self), for: indexPath) as! OfferTVC
+        let o = offers[indexPath.row]
+        cell.setup(offer: o)
         return cell
     }
     

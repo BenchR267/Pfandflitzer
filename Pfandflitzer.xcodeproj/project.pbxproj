@@ -31,6 +31,9 @@
 		B50F5A3D1DD742F900C1C0DA /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A3C1DD742F900C1C0DA /* CLLocationManager+Rx.swift */; };
 		B50F5A401DD74B1E00C1C0DA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A3F1DD74B1E00C1C0DA /* NetworkManager.swift */; };
 		B50F5A421DD7561B00C1C0DA /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A411DD7561B00C1C0DA /* Offer.swift */; };
+		B50F5A441DD777B700C1C0DA /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50F5A431DD777B700C1C0DA /* Kingfisher.framework */; };
+		B50F5A471DD780AC00C1C0DA /* OfferDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A461DD780AC00C1C0DA /* OfferDetailVC.swift */; };
+		B50F5A491DD7883F00C1C0DA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A481DD7883F00C1C0DA /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,17 +52,20 @@
 		B50F5A231DD71ABA00C1C0DA /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		B50F5A241DD71ABA00C1C0DA /* RxKeyboard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxKeyboard.framework; path = Carthage/Build/iOS/RxKeyboard.framework; sourceTree = "<group>"; };
 		B50F5A251DD71ABA00C1C0DA /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		B50F5A2A1DD7296500C1C0DA /* TakePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakePhoto.swift; path = TakePhoto.swift; sourceTree = "<group>"; };
+		B50F5A2A1DD7296500C1C0DA /* TakePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhoto.swift; sourceTree = "<group>"; };
 		B50F5A2C1DD72C2100C1C0DA /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B50F5A2F1DD7357F00C1C0DA /* ShowOffersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowOffersVC.swift; sourceTree = "<group>"; };
 		B50F5A321DD736DE00C1C0DA /* OfferTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTVC.swift; sourceTree = "<group>"; };
 		B50F5A331DD736DE00C1C0DA /* OfferTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OfferTVC.xib; sourceTree = "<group>"; };
 		B50F5A361DD73D2D00C1C0DA /* CreateOfferPersonVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOfferPersonVC.swift; sourceTree = "<group>"; };
 		B50F5A381DD740D100C1C0DA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		B50F5A3A1DD741A900C1C0DA /* GetLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetLocation.swift; path = GetLocation.swift; sourceTree = "<group>"; };
+		B50F5A3A1DD741A900C1C0DA /* GetLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLocation.swift; sourceTree = "<group>"; };
 		B50F5A3C1DD742F900C1C0DA /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		B50F5A3F1DD74B1E00C1C0DA /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B50F5A411DD7561B00C1C0DA /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		B50F5A431DD777B700C1C0DA /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		B50F5A461DD780AC00C1C0DA /* OfferDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferDetailVC.swift; sourceTree = "<group>"; };
+		B50F5A481DD7883F00C1C0DA /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50F5A441DD777B700C1C0DA /* Kingfisher.framework in Frameworks */,
 				B50F5A391DD740D100C1C0DA /* MapKit.framework in Frameworks */,
 				B50F5A261DD71ABA00C1C0DA /* RxCocoa.framework in Frameworks */,
 				B50F5A271DD71ABA00C1C0DA /* RxKeyboard.framework in Frameworks */,
@@ -144,6 +151,7 @@
 				B50F5A2C1DD72C2100C1C0DA /* Observable.swift */,
 				B50F5A1A1DD7103B00C1C0DA /* String.swift */,
 				B50F5A1C1DD7107800C1C0DA /* UIButton.swift */,
+				B50F5A481DD7883F00C1C0DA /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 		B50F5A221DD71AB900C1C0DA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B50F5A431DD777B700C1C0DA /* Kingfisher.framework */,
 				B50F5A381DD740D100C1C0DA /* MapKit.framework */,
 				B50F5A231DD71ABA00C1C0DA /* RxCocoa.framework */,
 				B50F5A241DD71ABA00C1C0DA /* RxKeyboard.framework */,
@@ -181,6 +190,7 @@
 		B50F5A2E1DD7356D00C1C0DA /* Show Offers */ = {
 			isa = PBXGroup;
 			children = (
+				B50F5A451DD7809C00C1C0DA /* Detail */,
 				B50F5A311DD736C600C1C0DA /* Cell */,
 				B50F5A2F1DD7357F00C1C0DA /* ShowOffersVC.swift */,
 			);
@@ -202,8 +212,15 @@
 				B50F5A3F1DD74B1E00C1C0DA /* NetworkManager.swift */,
 				B50F5A411DD7561B00C1C0DA /* Offer.swift */,
 			);
-			name = NetworkLayer;
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		B50F5A451DD7809C00C1C0DA /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B50F5A461DD780AC00C1C0DA /* OfferDetailVC.swift */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +304,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxKeyboard.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputPaths = (
 			);
@@ -313,6 +331,8 @@
 				B50F5A421DD7561B00C1C0DA /* Offer.swift in Sources */,
 				B50F5A3B1DD741A900C1C0DA /* GetLocation.swift in Sources */,
 				B50F5A401DD74B1E00C1C0DA /* NetworkManager.swift in Sources */,
+				B50F5A471DD780AC00C1C0DA /* OfferDetailVC.swift in Sources */,
+				B50F5A491DD7883F00C1C0DA /* UIView.swift in Sources */,
 				B50F5A1B1DD7103B00C1C0DA /* String.swift in Sources */,
 				B50F5A3D1DD742F900C1C0DA /* CLLocationManager+Rx.swift in Sources */,
 				B50F5A211DD7119700C1C0DA /* CreateOfferVC.swift in Sources */,
