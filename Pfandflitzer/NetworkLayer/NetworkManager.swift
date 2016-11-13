@@ -12,13 +12,21 @@ import RxSwift
 extension Data {
     
     var byteArray: [UInt8] {
-        // the number of elements:
-        let count = self.count / MemoryLayout<UInt8>.size
-        // create array of appropriate length:
-        var array = [UInt8](repeating: 0, count: count)
-        // copy bytes into array
-        copyBytes(to: &array, count: count * MemoryLayout<UInt8>.size)
-        return array
+//        // the number of elements:
+//        let count = self.count / MemoryLayout<UInt8>.size
+//        // create array of appropriate length:
+//        var array = [UInt8](repeating: 0, count: count)
+//        // copy bytes into array
+//        copyBytes(to: &array, count: count * MemoryLayout<UInt8>.size)
+//        return array
+        
+        return self.withUnsafeBytes {
+            [UInt8](UnsafeBufferPointer(start: $0, count: count))
+        }
+    }
+    
+    var hexString: String {
+        return base64EncodedString()
     }
     
 }
@@ -27,7 +35,7 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     
-    let baseUrl = "http://192.168.100.110:8764/api"
+    let baseUrl = "http://85.214.43.156:8764/api"
     
     func get(path: String, params: [String: String]) -> Observable<Any?> {
         
@@ -48,6 +56,7 @@ class NetworkManager {
         
         var r = URLRequest(url: u, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
         r.httpBody = p
+        r.httpMethod = "POST"
         r.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         return URLSession.shared.rx.json(request: r).map { $0 as Any? }

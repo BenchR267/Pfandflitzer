@@ -67,12 +67,14 @@ class CreateOfferModel: NSObject {
         }
         
         let p: [String: Any] = [
-            "Image": (UIImageJPEGRepresentation(i, 0.3) ?? Data()).byteArray,
-            "Bag": bag,
-            "Box": box,
+            "Image": (UIImageJPEGRepresentation(i, 0.3) ?? Data()).hexString,
+            "Bags": bag,
+            "Boxes": box,
             "Note": note,
-            "Name": name,
-            "Mail": mail,
+            "Owner": [
+                "Name": name,
+                "Mail": mail
+            ],
             "Location": Location(location: loc).json
         ]
         

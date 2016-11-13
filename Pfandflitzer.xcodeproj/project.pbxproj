@@ -34,6 +34,7 @@
 		B50F5A441DD777B700C1C0DA /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50F5A431DD777B700C1C0DA /* Kingfisher.framework */; };
 		B50F5A471DD780AC00C1C0DA /* OfferDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A461DD780AC00C1C0DA /* OfferDetailVC.swift */; };
 		B50F5A491DD7883F00C1C0DA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50F5A481DD7883F00C1C0DA /* UIView.swift */; };
+		B58A4DDE1DD88119008CE6A1 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58A4DDD1DD88119008CE6A1 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		B50F5A431DD777B700C1C0DA /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		B50F5A461DD780AC00C1C0DA /* OfferDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferDetailVC.swift; sourceTree = "<group>"; };
 		B50F5A481DD7883F00C1C0DA /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B58A4DDD1DD88119008CE6A1 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				B50F5A1A1DD7103B00C1C0DA /* String.swift */,
 				B50F5A1C1DD7107800C1C0DA /* UIButton.swift */,
 				B50F5A481DD7883F00C1C0DA /* UIView.swift */,
+				B58A4DDD1DD88119008CE6A1 /* Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58A4DDE1DD88119008CE6A1 /* Alert.swift in Sources */,
 				B50F5A2D1DD72C2100C1C0DA /* Observable.swift in Sources */,
 				B50F5A1D1DD7107800C1C0DA /* UIButton.swift in Sources */,
 				B50F5A341DD736DE00C1C0DA /* OfferTVC.swift in Sources */,

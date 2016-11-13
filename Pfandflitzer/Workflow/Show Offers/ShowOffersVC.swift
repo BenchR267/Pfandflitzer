@@ -9,6 +9,26 @@
 import UIKit
 import RxSwift
 
+let offer: Offer = {
+    let o = Offer(json: [
+        "Id": 1,
+        "Note": "",
+        "Boxes": 2.0,
+        "Bags": 0.0,
+        "Distance": "400 m",
+        "CreationDate": Date().timeIntervalSince1970,
+        "Owner": [
+            "Name": "Ben",
+            "Email": "ben@gmail.com"
+        ],
+        "Location": [
+            "Latitude": 51.056248,
+            "Longitude": 13.725361
+        ]
+        ])
+    return o!
+}()
+
 class ShowOffersVC: ViewController {
 
     let disposeBag = DisposeBag()
@@ -33,12 +53,24 @@ class ShowOffersVC: ViewController {
         
         let nib = UINib(nibName: String(describing: OfferTVC.self), bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: String(describing: OfferTVC.self))
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reload()
+//        self.offers = [offer]
+    }
+    
+    func reload() {
         GetLocation().get().subscribe(onNext: { l in
             let loc = Location(location: l!)
             Offer.get(location: loc).subscribe(onNext: { [weak self] o in
                 self?.offers = o ?? []
             }).addDisposableTo(self.disposeBag)
+        }, onError: { e in
+            Alert(message: "Did not found any offers :(")
+                .action(title: "Ok", handler: {})
+                .show(on: self)
         }).addDisposableTo(self.disposeBag)
     }
 

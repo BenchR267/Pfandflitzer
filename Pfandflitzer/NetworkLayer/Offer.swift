@@ -112,7 +112,7 @@ class Offer {
             let boxes = j["Boxes"] as? Double,
             let bags = j["Bags"] as? Double,
             let distance = j["Distance"] as? String,
-            let creation = j["CreationDate"] as? CLong else {
+            let creation = j["CreationDate"] as? TimeInterval else {
             
             return nil
         }
@@ -122,7 +122,7 @@ class Offer {
         self.boxes = boxes
         self.bags = bags
         self.distance = distance
-        self.creation = Date(timeIntervalSince1970: TimeInterval(creation))
+        self.creation = Date(timeIntervalSince1970: creation)
         
         guard let owner = Owner(json: j["Owner"]) else {
             return nil
