@@ -46,9 +46,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="OVr-dC-9VS">
-                        <rect key="frame" x="545" y="28" width="35" height="35"/>
+                        <rect key="frame" x="555" y="23.5" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="OVr-dC-9VS" secondAttribute="height" multiplier="1:1" id="d8A-Nh-WSY"/>
+                            <constraint firstAttribute="height" constant="25" id="y3f-QT-YEg"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -56,7 +57,6 @@
                     <constraint firstAttribute="trailingMargin" secondItem="OVr-dC-9VS" secondAttribute="trailing" constant="8" id="1XA-gn-Wth"/>
                     <constraint firstItem="aon-U5-QfN" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="1db-tj-xI8"/>
                     <constraint firstAttribute="bottom" secondItem="nEh-iH-HUF" secondAttribute="bottom" id="48I-Qa-Wqu"/>
-                    <constraint firstItem="OVr-dC-9VS" firstAttribute="top" secondItem="aon-U5-QfN" secondAttribute="bottom" id="4e1-Ud-Tq7"/>
                     <constraint firstItem="nEh-iH-HUF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="CYE-oL-mx6"/>
                     <constraint firstItem="YaX-nm-VhI" firstAttribute="width" secondItem="aon-U5-QfN" secondAttribute="width" id="J0e-6n-OR8"/>
                     <constraint firstItem="nEh-iH-HUF" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1:3" id="MSi-gy-aMx"/>
@@ -64,7 +64,7 @@
                     <constraint firstItem="aon-U5-QfN" firstAttribute="leading" secondItem="YaX-nm-VhI" secondAttribute="trailing" id="NdV-iP-GkZ"/>
                     <constraint firstItem="aon-U5-QfN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="OKQ-kS-SPX"/>
                     <constraint firstItem="aon-U5-QfN" firstAttribute="height" secondItem="YaX-nm-VhI" secondAttribute="height" id="Rey-2Y-bi9"/>
-                    <constraint firstItem="OVr-dC-9VS" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="T5b-WH-JVn"/>
+                    <constraint firstItem="OVr-dC-9VS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SJ4-bM-Qnq"/>
                     <constraint firstItem="e0b-Vi-YSR" firstAttribute="leading" secondItem="nEh-iH-HUF" secondAttribute="trailing" constant="8" id="Tbw-dB-Em4"/>
                     <constraint firstItem="e0b-Vi-YSR" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="X7B-wI-ZSt"/>
                     <constraint firstItem="nEh-iH-HUF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YuS-WJ-aFD"/>

@@ -44,7 +44,9 @@ class NetworkManager {
             return Observable.just(nil)
         }
         
-        return URLSession.shared.rx.json(url: url).map { $0 as Any? }
+        let req = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10)
+        
+        return URLSession.shared.rx.json(request: req).map { $0 as Any? }
     }
     
     func post(path: String, params: [String: Any]) -> Observable<Any?> {

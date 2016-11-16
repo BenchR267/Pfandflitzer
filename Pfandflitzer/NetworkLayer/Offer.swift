@@ -21,12 +21,12 @@ class Owner {
             return nil
         }
         
-        guard let name = j["Name"] as? String, let mail = j["Email"] as? String else {
+        guard let name = j["Name"] as? String else {
             return nil
         }
         
         self.name = name
-        self.mail = mail
+        self.mail = j["Email"] as? String ?? ""
     }
     
 }

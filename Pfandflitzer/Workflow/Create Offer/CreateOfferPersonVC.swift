@@ -54,9 +54,7 @@ class CreateOfferPersonVC: ViewController {
         // TODO: Save, Post and close
         model.post().subscribe(onNext: { [weak self] o in
             print("\(o)")
-            if o != nil {
-                self?.dismiss()
-            }
+            self?.dismiss()
             }, onError: {
                 print($0)
         }).addDisposableTo(self.disposeBag)
